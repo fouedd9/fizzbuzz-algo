@@ -13,16 +13,24 @@ For numbers from 1 to N:
 
 ## Implementation
 
-The solution uses a **rules-based approach** to make the algorithm easily extensible.
+The algorithm iterates from **1 to N** and applies the FizzBuzz rules using the modulo operator.
 
 ```javascript
-const rules = [
-  { divisor: 3, output: "Fizz" },
-  { divisor: 5, output: "Buzz" },
-];
-```
+const fizzBuzz = (n) => {
+  const result = [];
 
-This allows adding new rules without modifying the main algorithm.
+  for (let i = 1; i <= n; i++) {
+    let output = "";
+
+    if (i % 3 === 0) output += "Fizz";
+    if (i % 5 === 0) output += "Buzz";
+
+    result.push(output || i);
+  }
+
+  return result;
+};
+```
 
 # Run the script
 
