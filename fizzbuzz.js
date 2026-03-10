@@ -1,20 +1,14 @@
 const fizzBuzz = (n) => {
-  const rules = [
-    { divisor: 3, output: "Fizz" },
-    { divisor: 5, output: "Buzz" },
-  ];
   const result = [];
+
   for (let i = 1; i <= n; i++) {
-    const value = rules
-      .filter(({ divisor }) => i % divisor === 0)
-      .map(({ output }) => output)
-      .join("");
-    //   console.log(value || i);
-    result.push(value || i);
+    let output = "";
+    if (i % 3 === 0) output += "Fizz";
+    if (i % 5 === 0) output += "Buzz";
+    result.push(output || i);
   }
   return result;
 };
-
 // N'exécute le code CLI que si le script est lancé directement
 // et non pas lors d'une importation dans les tests
 if (require.main === module) {
